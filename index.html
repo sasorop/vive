@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Alimentación Canina</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Iconos flotantes eliminados por petición del usuario -->
+
+    <div class="container">
+        <div class="header-icon">🐕‍🦺</div>
+        <h1>Calculadora Canina</h1>
+        <p class="subtitle">Descubre cuánto debe comer y pesar tu mejor amigo</p>
+        
+        <div class="form-group">
+            <label for="raza">🐕 Raza del perro:</label>
+            <select id="raza">
+                <option value="">Selecciona una raza</option>
+                <option value="chihuahua">Chihuahua</option>
+                <option value="beagle">Beagle</option>
+                <option value="bulldog">Bulldog Francés</option>
+                <option value="cocker">Cocker Spaniel</option>
+                <option value="labrador">Labrador Retriever</option>
+                <option value="golden">Golden Retriever</option>
+                <option value="pastor">Pastor Alemán</option>
+                <option value="husky">Husky Siberiano</option>
+                <option value="rottweiler">Rottweiler</option>
+                <option value="gran-danes">Gran Danés</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="edad">📅 Edad del perro:</label>
+            <select id="edad">
+                <option value="">Selecciona la edad</option>
+                <option value="cachorro">Cachorro (2-12 meses)</option>
+                <option value="joven">Joven (1-2 años)</option>
+                <option value="adulto">Adulto (2-7 años)</option>
+                <option value="senior">Senior (7+ años)</option>
+            </select>
+        </div>
+
+        <button id="calcularBtn">Calcular recomendaciones</button>
+
+        <div id="resultado" class="resultado">
+            <h2>📊 Resultados</h2>
+            <!-- Tabla resumen: Raza | Edad | Tipo de comida (columna nueva solicitada) -->
+            <div id="resumen"></div>
+
+            <div class="info-item">
+                <strong>🍖 Cantidad de comida diaria:</strong>
+                <span id="comida"></span>
+            </div>
+            <div class="info-item">
+                <strong>⚖️ Peso ideal:</strong>
+                <span id="peso"></span>
+            </div>
+            <div class="info-item">
+                <strong>📝 Recomendaciones:</strong>
+                <span id="recomendacion"></span>
+            </div>
+            <div class="info-item">
+                <strong>🍽️ Comida ideal:</strong>
+                <span id="comida_ideal"></span>
+            </div>
+            <div class="info-item">
+                <strong>🍽️ Variedades recomendadas:</strong>
+                <span id="variantes"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
