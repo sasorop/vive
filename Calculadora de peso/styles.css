@@ -1,0 +1,108 @@
+/* Minimalista, limpio y accesible */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #f3f6ff 0%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: #24303f;
+}
+
+/* Fondo decorativo por defecto: pequeño SVG en esquina */
+body::after {
+  content: '';
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  width: 200px;
+  height: 200px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><g fill='%230e2330' fill-opacity='0.06'><path d='M256 32c-35 0-64 29-64 64 0 26 16 48 38 58-55 14-108 45-153 89-52 52-78 119-78 191 0 16 13 29 29 29h452c16 0 29-13 29-29 0-72-26-139-78-191-45-44-98-75-153-89 22-10 38-32 38-58 0-35-29-64-64-64z'/></g></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+}
+
+/* Si la imagen `fondo-perros.jpg` está disponible, usarla como fondo decorativo completo */
+body.bg-photo::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('fondo-perros.jpg');
+  background-size: cover;
+  background-position: center center;
+  z-index: -2;
+  filter: saturate(0.95) contrast(0.95);
+  box-shadow: inset 0 0 0 1000px rgba(6,10,12,0.22);
+}
+body.bg-photo::after { z-index: -1; }
+
+.container {
+  width: 100%;
+  max-width: 640px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(36,48,63,0.08);
+  border: 1px solid rgba(36,48,63,0.04);
+  position: relative; /* necesario para pseudo-elemento interno */
+  z-index: 1;
+}
+.container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: none;
+  background-size: cover;
+  background-position: center center;
+  border-radius: inherit;
+  opacity: 0.0;
+  z-index: 0;
+  pointer-events: none;
+}
+body.bg-photo .container::before {
+  background-image: url('fondo-perros.jpg');
+  opacity: 0.14;
+}
+
+.header-icon { font-size: 44px; text-align: center; margin-bottom: 8px; }
+h1 { font-size: 1.6rem; text-align: center; color: #16202b; margin-bottom: 6px; }
+.subtitle { text-align: center; color: #556570; margin-bottom: 22px; font-size: 0.95rem; }
+.form-group { margin-bottom: 18px; }
+label { display:block; margin-bottom:8px; font-weight:600; color:#28343f; }
+select, input[type="text"] {
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid #e6edf3;
+  background: #fbfdff;
+  font-size:1rem;
+}
+select:focus, input:focus { outline: none; box-shadow: 0 6px 18px rgba(102,126,234,0.06); border-color: #8aa0ff; }
+button {
+  width:100%;
+  padding:12px 14px;
+  background:#2f6bea;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+}
+button:hover { filter:brightness(0.98); transform: translateY(-2px); }
+.resultado { margin-top:20px; padding:18px; border-radius:10px; background:#fbfdff; border:1px solid rgba(47,107,234,0.08); display:none; }
+.resultado.show { display:block; }
+.info-item { margin:10px 0; padding:12px; background:white; border-radius:8px; box-shadow:0 4px 12px rgba(36,48,63,0.03); }
+.info-item strong { display:block; color:#2f6bea; font-size:0.95rem; margin-bottom:6px; }
+.info-item span { font-weight:700; color:#16202b; }
+
+.variantes-list { margin: 0; padding-left: 18px; margin-top:6px; }
+.variantes-list li { margin-bottom: 6px; font-weight:600; color:#16202b; }
+.resumen-table { width:100%; border-collapse: collapse; margin-bottom:10px; }
+.resumen-table th, .resumen-table td { text-align:left; padding:8px 10px; border-bottom:1px solid rgba(36,48,63,0.06); }
+.resumen-table th { background: transparent; color:#2f6bea; font-weight:700; }
+.resumen-table td { font-weight:700; color:#16202b; }
+@media (max-width:560px){ .container{ padding:20px;} h1{font-size:1.25rem;} .header-icon{font-size:38px;} }
